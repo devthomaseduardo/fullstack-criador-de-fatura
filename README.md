@@ -1,89 +1,85 @@
+# 📄 Sistema de Gestão de Faturas
 
-# Projeto de Gestão de Faturas
+## 🧾 Sobre o Projeto
+O **Sistema de Gestão de Faturas** é uma aplicação web desenvolvida em **React** que permite gerar, visualizar e gerenciar faturas de forma eficiente.  
+A interface moderna e responsiva garante uma experiência fluida, tornando o processo de emissão de faturas rápido e organizado.  
 
-![Gerador de Fatura](https://github.com/user-attachments/assets/b042cd0a-10aa-4df6-9fc9-855253205ac8)
+---
 
-## Visão Geral
+## ✨ Funcionalidades
+- **Visualização de Fatura:** Prévia detalhada da fatura com todos os itens e valores.  
+- **Gerenciamento de Produtos:** Adicione, edite ou remova produtos facilmente.  
+- **Cálculo Automático do Total:** Atualização automática do valor total da fatura com base em quantidade e preço.  
+- **QR Code:** Gera QR Code para referência rápida da fatura.  
+- **Impressão e PDF:** Permite imprimir ou exportar a fatura em PDF usando **React-to-Print**.  
+- **Interface Responsiva:** Layout adaptável para desktops, tablets e dispositivos móveis.  
 
-O projeto de gestão de faturas é uma aplicação web destinada a gerar e gerenciar faturas de forma eficiente. Ele permite visualizar uma prévia da fatura, adicionar e editar produtos, e imprimir ou gerar um PDF da fatura. A interface foi desenvolvida com React e utiliza bibliotecas modernas para garantir uma experiência de usuário fluida e responsiva.
+---
+## Print
+![amodelo-projeto](image.png)
+![print-fatura](image-1.png)
+--
 
-## Funcionalidades
+## 🛠 Tecnologias
+- **React.js**  
+- **JavaScript (ES6+)**  
+- **CSS / Tailwind**  
+- **React-to-Print**  
+- **Bibliotecas adicionais para UI e QR Code**  
 
-- **Visualização de Fatura:** Exibe uma prévia da fatura com informações detalhadas.
-- **Gerenciamento de Produtos:** Adiciona, edita e remove produtos da fatura.
-- **Cálculo Automático do Total:** Calcula automaticamente o total da fatura com base na quantidade e preço dos produtos.
-- **QR Code:** Gera um QR Code para a fatura que pode ser utilizado para referência rápida.
-- **Impressão e PDF:** Permite imprimir a fatura ou gerar um PDF utilizando a funcionalidade do React-to-Print.
-- **Interface Responsiva:** Adapta-se a diferentes tamanhos de tela para uma melhor experiência em dispositivos móveis e desktops.
+---
 
-## Estrutura do Projeto
+## 📂 Estrutura do Projeto
+```
 
-- `src/`
-  - `components/`
-    - `InvoicePreview/` - Componente para a visualização da fatura.
-    - `ProductForm/` - Componente para o formulário de adição/edição de produtos.
-    - `ActionButton/` - Componente para botões de ação reutilizáveis.
-    - `Template/` - Componente para o layout da fatura e geração do PDF.
-  - `App.js` - Arquivo principal do React que configura e renderiza os componentes.
-  - `index.js` - Ponto de entrada da aplicação React.
+src/
+├── components/   # Componentes reutilizáveis (Fatura, Produto, Botões, etc.)
+├── pages/        # Páginas principais do sistema
+├── utils/        # Funções auxiliares e cálculos
+├── App.js        # Componente raiz
+└── index.js      # Ponto de entrada da aplicação
 
-## Tecnologias Utilizadas
+````
 
-- **React**: Biblioteca JavaScript para construção da interface de usuário.
-- **Material-UI**: Biblioteca de componentes React que segue as diretrizes de design do Material Design.
-- **React-to-Print**: Biblioteca para impressão e geração de PDFs.
-- **QRCode.react**: Biblioteca para gerar QR Codes.
-- **Lucide Icons**: Biblioteca de ícones para interfaces modernas.
+---
 
-## Instalação
+## 📥 Instalação e Uso
+Clone o repositório:
 
-Para rodar o projeto localmente, siga as instruções abaixo:
+```bash
+git clone https://github.com/seu_usuario/invoice-management.git
+cd invoice-management
+````
 
-1. **Clone o repositório:**
+Instale as dependências:
 
-   ```bash
-   git clone https://github.com/seu-usuario/projeto-faturas.git
-   cd projeto-faturas
-   ```
+```bash
+npm install
+```
 
-2. **Instale as dependências:**
+Inicie o servidor de desenvolvimento:
 
-   ```bash
-   npm install
-   ```
+```bash
+npm run dev
+```
 
-3. **Inicie o servidor de desenvolvimento:**
+Abra em [http://localhost:5173](http://localhost:5173) (Vite padrão).
 
-   ```bash
-   npm start
-   ```
+---
 
-   O projeto estará disponível em [http://localhost:3000](http://localhost:3000).
+## 🚀 Como Utilizar
 
-## Uso
+1. Abra a aplicação no navegador.
+2. Adicione produtos à fatura com preço e quantidade.
+3. Visualize a fatura em tempo real e veja o total atualizado.
+4. Gere o QR Code para referência rápida.
+5. Imprima ou exporte a fatura em PDF conforme necessário.
 
-1. **Visualização da Fatura:**
-   - Acesse o componente `InvoicePreview` para ver uma prévia da fatura.
+---
 
-2. **Gerenciamento de Produtos:**
-   - Utilize o componente `ProductForm` para adicionar ou editar produtos na fatura.
+## 🤝 Contribuição
 
-3. **Impressão e PDF:**
-   - Clique no botão de impressão para gerar uma versão imprimível da fatura.
+Contribuições são bem-vindas!
+Abra uma **issue** ou envie um **pull request** com sugestões de melhorias ou novos recursos.
 
-4. **QR Code:**
-   - Visualize o QR Code gerado que está associado à fatura.
-
-## Contribuição
-
-Contribuições são bem-vindas! Se você deseja contribuir para o projeto, por favor, siga estas etapas:
-
-1. Fork o repositório.
-2. Crie uma branch para suas alterações (`git checkout -b minha-nova-feature`).
-3. Faça commit das suas alterações (`git commit -am 'Adiciona nova feature'`).
-4. Push para a branch (`git push origin minha-nova-feature`).
-5. Abra um Pull Request.
-
-## Licença
-
-Este projeto é licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
+---

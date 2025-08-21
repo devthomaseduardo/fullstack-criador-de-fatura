@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Corporate Invoice Management Design System
+Professional blues, elegant gradients and clean typography
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 216 33% 97%;
+    --foreground: 220 39% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 39% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 39% 11%;
+
+    /* Corporate Blue Palette */
+    --primary: 217 91% 33%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 217 91% 60%;
+    --primary-dark: 217 91% 20%;
+
+    --secondary: 214 32% 91%;
+    --secondary-foreground: 220 39% 11%;
+
+    --muted: 214 32% 95%;
+    --muted-foreground: 220 14% 51%;
+
+    --accent: 214 32% 91%;
+    --accent-foreground: 220 39% 11%;
+
+    /* Success Green for totals */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 88%;
+    --input: 214 32% 88%;
+    --ring: 217 91% 33%;
+
+    /* Invoice specific colors */
+    --invoice-header: 220 39% 11%;
+    --invoice-accent: 217 91% 33%;
+    --invoice-light: 214 100% 97%;
+    --invoice-text: 220 26% 14%;
+    --invoice-muted: 220 14% 51%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 33%), hsl(217 91% 60%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(214 32% 97%));
+    --gradient-invoice: linear-gradient(180deg, hsl(0 0% 100%), hsl(214 100% 97%));
+
+    /* Shadows */
+    --shadow-invoice: 0 10px 25px -3px hsl(217 91% 33% / 0.1);
+    --shadow-card: 0 4px 6px -1px hsl(220 39% 11% / 0.1);
+    --shadow-button: 0 2px 4px hsl(217 91% 33% / 0.2);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 39% 11%;
+    --foreground: 214 32% 95%;
+
+    --card: 220 26% 14%;
+    --card-foreground: 214 32% 95%;
+
+    --popover: 220 26% 14%;
+    --popover-foreground: 214 32% 95%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 220 39% 11%;
+    --primary-light: 217 91% 70%;
+    --primary-dark: 217 91% 50%;
+
+    --secondary: 220 26% 18%;
+    --secondary-foreground: 214 32% 95%;
+
+    --muted: 220 26% 18%;
+    --muted-foreground: 220 14% 71%;
+
+    --accent: 220 26% 18%;
+    --accent-foreground: 214 32% 95%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 214 32% 95%;
+
+    --border: 220 26% 18%;
+    --input: 220 26% 18%;
+    --ring: 217 91% 60%;
+
+    --invoice-header: 214 32% 95%;
+    --invoice-accent: 217 91% 60%;
+    --invoice-light: 220 26% 14%;
+    --invoice-text: 214 32% 95%;
+    --invoice-muted: 220 14% 71%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 50%), hsl(217 91% 70%));
+    --gradient-card: linear-gradient(145deg, hsl(220 26% 14%), hsl(220 26% 18%));
+    --gradient-invoice: linear-gradient(180deg, hsl(220 26% 14%), hsl(220 26% 16%));
+
+    --shadow-invoice: 0 10px 25px -3px hsl(0 0% 0% / 0.25);
+    --shadow-card: 0 4px 6px -1px hsl(0 0% 0% / 0.2);
+    --shadow-button: 0 2px 4px hsl(217 91% 60% / 0.3);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

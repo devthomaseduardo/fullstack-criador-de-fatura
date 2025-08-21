@@ -1,103 +1,42 @@
-/* App.css */
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto', sans-serif; /* Fonte padrão */
-  background-color: #121212; /* Fundo preto */
-  color: #e0e0e0; /* Texto claro */
-}
-/* Estilização da barra de rolagem para WebKit (Chrome, Safari) */
-
-::-webkit-scrollbar {
-  width: 12px; /* Largura da barra de rolagem vertical */
-  height: 12px; /* Altura da barra de rolagem horizontal */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 
-::-webkit-scrollbar-track {
-  background: #2c2c2c; /* Cor de fundo da trilha da barra de rolagem */
-  border-radius: 12px; /* Bordas arredondadas da trilha */
-}
-
-::-webkit-scrollbar-thumb {
-  background: #e6b80096; /* Cor do "polegar" da barra de rolagem */
-  border-radius: 12px; /* Bordas arredondadas do "polegar" */
-  transition: background-color 0.3s; /* Transição suave para a cor */
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #e6b800; /* Cor do "polegar" ao passar o mouse */
-}
-
-/* Estilização da barra de rolagem horizontal */
-::-webkit-scrollbar-horizontal {
-  height: 12px; /* Altura da barra de rolagem horizontal */
-}
-
-::-webkit-scrollbar-thumb:horizontal {
-  background: #e6b800; /* Cor do "polegar" da barra de rolagem horizontal */
-}
-
-::-webkit-scrollbar-thumb:horizontal:hover {
-  background: #e6b800; /* Cor do "polegar" horizontal ao passar o mouse */
-}
-
-/* Container geral */
-.container {
-  max-width: 1200px; /* Largura máxima para grandes telas */
-  margin: 0 auto; /* Centraliza horizontalmente */
-  padding: 20px; /* Espaçamento interno */
-  background-color: #1e1e1e; /* Fundo escuro para contraste */
-  color: #ffffff; /* Cor do texto */
-  border-radius: 12px; /* Bordas arredondadas */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra suave */
-  box-sizing: border-box; /* Inclui padding e border no tamanho total */
-}
-
-/* Imagem do logo */
 .logo {
-  display: block; /* Garante que a imagem se comporte como bloco */
-  max-width: 100%; /* Garante que a imagem não ultrapasse a largura do container */
-  height: auto; /* Mantém a proporção da imagem */
-  margin: 20px auto; /* Espaçamento superior e inferior, e centraliza horizontalmente */
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-/* Título principal */
-.title {
-  font-size: 2.5rem; /* Tamanho da fonte para títulos grandes */
-  color: #e6b800; /* Cor do título */
-  margin: 20px 0; /* Espaço acima e abaixo do título */
-  text-align: center; /* Centraliza o título */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-/* Botões */
-.buttons {
-  display: flex;
-  flex-wrap: wrap; /* Permite a quebra de linha se necessário */
-  justify-content: center; /* Centraliza os botões */
-  gap: 10px; /* Espaço entre os botões */
-  margin: 30px 0; /* Espaço acima e abaixo dos botões */
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
 }
 
+.card {
+  padding: 2em;
+}
 
-/* Responsividade */
-@media (max-width: 768px) {
-  .container {
-    padding: 15px; /* Reduz o padding em telas menores */
-  }
-
-  .title {
-    font-size: 2rem; /* Reduz o tamanho da fonte em telas menores */
-    margin: 15px 0; /* Ajusta o espaço acima e abaixo do título */
-  }
-
-  .buttons {
-    gap: 8px; /* Espaço menor entre os botões */
-    margin: 20px 0; /* Ajusta o espaço acima e abaixo dos botões */
-  }
-
-  .logo {
-    width: 150px; /* Reduz o tamanho do logo em telas menores */
-    margin: 15px auto; /* Ajusta o espaço acima e abaixo do logo */
-  }
+.read-the-docs {
+  color: #888;
 }
