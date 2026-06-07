@@ -110,35 +110,34 @@ export const InvoiceManager = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background font-sans text-foreground">
       {/* Top Bar */}
-      <header className="sticky top-0 z-30 border-b border-border/60 bg-background/80 backdrop-blur-md">
-        <div className="max-w-[1600px] mx-auto px-6 h-14 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-7 h-7 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
-              <FileText className="w-3.5 h-3.5 text-primary" />
+      <header className="sticky top-0 z-30 border-b border-white/5 bg-background/60 backdrop-blur-xl">
+        <div className="max-w-[1600px] mx-auto px-6 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <div className="w-9 h-9 rounded-xl bg-primary/20 border border-primary/30 flex items-center justify-center shadow-[0_0_15px_rgba(124,58,237,0.3)]">
+              <FileText className="w-4 h-4 text-primary" />
             </div>
-            <div className="flex items-center gap-2">
-              <span className="text-sm font-semibold text-foreground tracking-tight">InvoicePro</span>
-              <ChevronRight className="w-3.5 h-3.5 text-muted-foreground" />
-              <span className="text-sm text-muted-foreground mono">{invoice.number}</span>
+            <div className="flex items-center gap-2.5">
+              <span className="text-base font-bold tracking-wide">InvoicePro</span>
+              <ChevronRight className="w-4 h-4 text-muted-foreground/60" />
+              <span className="text-sm text-primary-light mono bg-primary/10 px-2.5 py-1 rounded-md border border-primary/20">{invoice.number}</span>
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <button
               onClick={handleSavePDF}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-muted-foreground hover:text-foreground border border-border hover:border-border/80 rounded-md transition-all hover:bg-secondary/60 active:scale-[0.98]"
+              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-foreground bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 rounded-lg transition-all active:scale-[0.98] shadow-sm backdrop-blur-md"
             >
-              <Download className="w-3.5 h-3.5" />
+              <Download className="w-4 h-4" />
               Exportar PDF
             </button>
             <button
               onClick={handlePrint}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-md transition-all active:scale-[0.98]"
-              style={{ boxShadow: 'var(--shadow-button)' }}
+              className="btn-glow inline-flex items-center gap-2 px-5 py-2 text-sm font-medium text-white bg-primary rounded-lg"
             >
-              <Printer className="w-3.5 h-3.5" />
+              <Printer className="w-4 h-4" />
               Imprimir
             </button>
           </div>
@@ -148,28 +147,31 @@ export const InvoiceManager = () => {
       <div className="max-w-[1600px] mx-auto px-6 py-8">
         <div className="grid grid-cols-1 xl:grid-cols-[1fr_520px] gap-8">
           {/* ── Left Panel ── */}
-          <div className="space-y-6">
+          <div className="space-y-8">
             {/* Page heading */}
             <div className="animate-fade-up">
-              <p className="section-title mb-1">Nova Fatura</p>
-              <h1 className="text-2xl font-semibold text-foreground tracking-tight">
+              <div className="inline-flex items-center gap-2 mb-2">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                <p className="section-title">Nova Fatura</p>
+              </div>
+              <h1 className="text-3xl md:text-4xl font-bold tracking-tight bg-gradient-to-br from-white to-white/60 bg-clip-text text-transparent">
                 Gestão de Faturas
               </h1>
             </div>
 
             {/* Nav tabs */}
-            <nav className="flex gap-1 p-1 bg-secondary/40 border border-border rounded-lg w-fit animate-fade-up">
+            <nav className="flex gap-2 p-1.5 glass-card w-fit animate-fade-up" style={{ animationDelay: '0.1s' }}>
               {navItems.map(({ id, icon: Icon, label }) => (
                 <button
                   key={id}
                   onClick={() => setActiveSection(id)}
-                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
+                  className={`inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all ${
                     activeSection === id
-                      ? 'bg-card text-foreground border border-border shadow-sm'
-                      : 'text-muted-foreground hover:text-foreground'
+                      ? 'bg-primary/20 text-primary-light border border-primary/30 shadow-[0_0_15px_rgba(124,58,237,0.2)]'
+                      : 'text-muted-foreground hover:text-foreground hover:bg-white/5'
                   }`}
                 >
-                  <Icon className="w-3.5 h-3.5" />
+                  <Icon className="w-4 h-4" />
                   {label}
                 </button>
               ))}
@@ -247,10 +249,10 @@ export const InvoiceManager = () => {
 
                 <button
                   onClick={() => setActiveSection('products')}
-                  className="mt-6 inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:text-primary/80 transition-colors"
+                  className="mt-6 btn-glow inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-primary transition-all w-fit rounded-lg shadow-lg"
                 >
-                  Próximo: Adicionar Itens
-                  <ChevronRight className="w-3.5 h-3.5" />
+                  Avançar para Itens
+                  <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
             )}
@@ -317,16 +319,16 @@ export const InvoiceManager = () => {
 
           {/* ── Right Panel: Preview ── */}
           <div className="xl:block">
-            <div className="sticky top-[72px]">
-              <div className="flex items-center justify-between mb-4">
-                <p className="section-title">Prévia</p>
-                <span className="badge-draft inline-flex items-center text-[11px] font-medium px-2 py-0.5 rounded-full">
+            <div className="sticky top-[90px] animate-fade-up" style={{ animationDelay: '0.2s' }}>
+              <div className="flex items-center justify-between mb-4 px-1">
+                <p className="section-title text-muted-foreground">Prévia do Documento</p>
+                <span className="badge-draft inline-flex items-center text-xs font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">
                   Rascunho
                 </span>
               </div>
               <div
-                className="rounded-xl border border-border overflow-hidden"
-                style={{ maxHeight: 'calc(100vh - 140px)', overflowY: 'auto' }}
+                className="rounded-2xl border border-white/10 overflow-hidden shadow-2xl shadow-primary/5 bg-white/5 backdrop-blur-3xl"
+                style={{ maxHeight: 'calc(100vh - 160px)', overflowY: 'auto' }}
               >
                 <InvoicePreview ref={printRef} invoice={invoice} />
               </div>
