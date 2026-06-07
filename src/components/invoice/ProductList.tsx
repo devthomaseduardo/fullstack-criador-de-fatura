@@ -1,8 +1,5 @@
 import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Edit2, Trash2, Check, X } from 'lucide-react';
+import { Edit2, Trash2, Check, X, ShoppingBag } from 'lucide-react';
 import { Product } from '@/types/invoice';
 import { toast } from 'sonner';
 
@@ -31,119 +28,132 @@ export const ProductList = ({ products, onUpdateProduct, onDeleteProduct }: Prod
       onUpdateProduct(editingId, editForm);
       setEditingId(null);
       setEditForm({});
-      toast.success('Produto atualizado com sucesso!');
+      toast.success('Item atualizado');
     }
   };
 
-  const handleDelete = (id: string, productName: string) => {
+  const handleDelete = (id: string, name: string) => {
     onDeleteProduct(id);
-    toast.success(`Produto "${productName}" removido!`);
+    toast.success(`"${name}" removido`);
   };
 
   if (products.length === 0) {
     return (
-      <Card className="bg-gradient-card shadow-card">
-        <CardContent className="pt-6">
-          <div className="text-center py-8">
-            <p className="text-invoice-muted">Nenhum produto adicionado ainda</p>
-            <p className="text-sm text-invoice-muted mt-2">Use o formulário acima para adicionar produtos</p>
-          </div>
-        </CardContent>
-      </Card>
+      <div className="glass-card p-8 flex flex-col items-center justify-center gap-3 text-center">
+        <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center">
+          <ShoppingBag className="w-5 h-5 text-muted-foreground" />
+        </div>
+        <div>
+          <p className="text-sm font-medium text-foreground/70">Nenhum item adicionado</p>
+          <p className="text-xs text-muted-foreground mt-0.5">Use o formulário acima para inserir produtos ou serviços</p>
+        </div>
+      </div>
     );
   }
 
   return (
-    <Card className="bg-gradient-card shadow-card">
-      <CardHeader>
-        <CardTitle className="text-invoice-header">Lista de Produtos</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div className="space-y-4">
-          {products.map((product) => (
-            <div key={product.id} className="border border-border rounded-lg p-4 bg-card">
-              {editingId === product.id ? (
-                <div className="space-y-3">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                    <Input
-                      value={editForm.name || ''}
-                      onChange={(e) => setEditForm({ ...editForm, name: e.target.value })}
-                      placeholder="Nome do produto"
-                      className="border-border"
-                    />
-                    <Input
-                      type="number"
-                      step="0.01"
-                      value={editForm.price || 0}
-                      onChange={(e) => setEditForm({ ...editForm, price: Number(e.target.value) })}
-                      placeholder="Preço"
-                      className="border-border"
-                    />
-                    <Input
-                      type="number"
-                      min="1"
-                      value={editForm.quantity || 1}
-                      onChange={(e) => setEditForm({ ...editForm, quantity: Number(e.target.value) })}
-                      placeholder="Quantidade"
-                      className="border-border"
-                    />
-                  </div>
-                  <Input
-                    value={editForm.description || ''}
-                    onChange={(e) => setEditForm({ ...editForm, description: e.target.value })}
-                    placeholder="Descrição"
-                    className="border-border"
+    <div className="glass-card overflow-hidden">
+      <div className="px-6 py-4 border-b border-border flex items-center justify-between">
+        <p className="section-title">Itens da Fatura</p>
+        <span className="text-xs text-muted-foreground">{products.length} {products.length === 1 ? 'item' : 'itens'}</span>
+      </div>
+
+      <div className="divide-y divide-border">
+        {products.map((product, index) => (
+          <div
+            key={product.id}
+            className="px-6 py-4 animate-slide-in"
+            style={{ animationDelay: `${index * 40}ms` }}
+          >
+            {editingId === product.id ? (
+              <div className="space-y-3">
+                <div className="grid grid-cols-3 gap-2">
+                  <input
+                    className="field-base col-span-1"
+                    value={editForm.name || ''}
+                    onChange={(e) => setEditForm({ ...editForm, name: e.target.value })}
+                    placeholder="Nome"
                   />
-                  <div className="flex gap-2">
-                    <Button onClick={saveEditing} variant="default" size="sm" className="bg-success">
-                      <Check className="h-4 w-4 mr-1" />
-                      Salvar
-                    </Button>
-                    <Button onClick={cancelEditing} variant="outline" size="sm">
-                      <X className="h-4 w-4 mr-1" />
-                      Cancelar
-                    </Button>
+                  <input
+                    type="number"
+                    step="0.01"
+                    className="field-base mono"
+                    value={editForm.price || 0}
+                    onChange={(e) => setEditForm({ ...editForm, price: Number(e.target.value) })}
+                    placeholder="Preço"
+                  />
+                  <input
+                    type="number"
+                    min="1"
+                    className="field-base mono"
+                    value={editForm.quantity || 1}
+                    onChange={(e) => setEditForm({ ...editForm, quantity: Number(e.target.value) })}
+                    placeholder="Qtd"
+                  />
+                </div>
+                <input
+                  className="field-base"
+                  value={editForm.description || ''}
+                  onChange={(e) => setEditForm({ ...editForm, description: e.target.value })}
+                  placeholder="Descrição (opcional)"
+                />
+                <div className="flex gap-2">
+                  <button
+                    onClick={saveEditing}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-success bg-success/10 border border-success/25 rounded-md hover:bg-success/15 transition-colors"
+                  >
+                    <Check className="w-3.5 h-3.5" />
+                    Salvar
+                  </button>
+                  <button
+                    onClick={cancelEditing}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-muted-foreground border border-border rounded-md hover:bg-secondary/60 transition-colors"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                    Cancelar
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className="flex items-start justify-between gap-4 group">
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2">
+                    <p className="text-sm font-medium text-foreground truncate">{product.name}</p>
+                  </div>
+                  {product.description && (
+                    <p className="text-xs text-muted-foreground mt-0.5 truncate">{product.description}</p>
+                  )}
+                  <div className="flex items-center gap-3 mt-1.5">
+                    <span className="text-xs text-muted-foreground mono">
+                      {product.quantity}× R$ {product.price.toFixed(2)}
+                    </span>
                   </div>
                 </div>
-              ) : (
-                <div className="flex items-center justify-between">
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between">
-                      <h4 className="font-semibold text-invoice-text">{product.name}</h4>
-                      <span className="font-bold text-success">R${product.total.toFixed(2)}</span>
-                    </div>
-                    {product.description && (
-                      <p className="text-sm text-invoice-muted mt-1">{product.description}</p>
-                    )}
-                    <div className="flex items-center gap-4 mt-2 text-sm text-invoice-muted">
-                      <span>Qtd: {product.quantity}</span>
-                      <span>Preço: R${product.price.toFixed(2)}</span>
-                    </div>
-                  </div>
-                  <div className="flex gap-2 ml-4">
-                    <Button
+
+                <div className="flex items-center gap-3 shrink-0">
+                  <span className="text-sm font-semibold mono text-success">
+                    R$ {product.total.toFixed(2)}
+                  </span>
+                  <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button
                       onClick={() => startEditing(product)}
-                      variant="outline"
-                      size="sm"
-                      className="hover:bg-primary hover:text-primary-foreground"
+                      className="w-7 h-7 rounded-md flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
                     >
-                      <Edit2 className="h-4 w-4" />
-                    </Button>
-                    <Button
+                      <Edit2 className="w-3.5 h-3.5" />
+                    </button>
+                    <button
                       onClick={() => handleDelete(product.id, product.name)}
-                      variant="outline"
-                      size="sm"
-                      className="hover:bg-destructive hover:text-destructive-foreground"
+                      className="w-7 h-7 rounded-md flex items-center justify-center text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-colors"
                     >
-                      <Trash2 className="h-4 w-4" />
-                    </Button>
+                      <Trash2 className="w-3.5 h-3.5" />
+                    </button>
                   </div>
                 </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </CardContent>
-    </Card>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };

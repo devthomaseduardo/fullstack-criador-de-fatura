@@ -1,149 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Corporate Invoice Management Design System
-Professional blues, elegant gradients and clean typography
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 216 33% 97%;
-    --foreground: 220 39% 11%;
+    /* Dark Premium Palette */
+    --background: 222 20% 7%;
+    --foreground: 210 20% 92%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 39% 11%;
+    --card: 222 18% 10%;
+    --card-foreground: 210 20% 92%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 39% 11%;
+    --popover: 222 18% 10%;
+    --popover-foreground: 210 20% 92%;
 
-    /* Corporate Blue Palette */
-    --primary: 217 91% 33%;
+    --primary: 222 100% 62%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 217 91% 60%;
-    --primary-dark: 217 91% 20%;
+    --primary-light: 222 100% 72%;
+    --primary-dark: 222 100% 52%;
 
-    --secondary: 214 32% 91%;
-    --secondary-foreground: 220 39% 11%;
+    --secondary: 222 15% 15%;
+    --secondary-foreground: 210 20% 80%;
 
-    --muted: 214 32% 95%;
-    --muted-foreground: 220 14% 51%;
+    --muted: 222 15% 13%;
+    --muted-foreground: 220 12% 48%;
 
-    --accent: 214 32% 91%;
-    --accent-foreground: 220 39% 11%;
+    --accent: 222 15% 15%;
+    --accent-foreground: 210 20% 92%;
 
-    /* Success Green for totals */
-    --success: 142 71% 45%;
+    --success: 158 64% 46%;
     --success-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 72% 58%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 88%;
-    --input: 214 32% 88%;
-    --ring: 217 91% 33%;
+    --border: 222 15% 16%;
+    --input: 222 15% 13%;
+    --ring: 222 100% 62%;
 
-    /* Invoice specific colors */
-    --invoice-header: 220 39% 11%;
-    --invoice-accent: 217 91% 33%;
-    --invoice-light: 214 100% 97%;
-    --invoice-text: 220 26% 14%;
-    --invoice-muted: 220 14% 51%;
+    /* Invoice specific */
+    --invoice-header: 210 20% 92%;
+    --invoice-accent: 222 100% 62%;
+    --invoice-light: 222 15% 12%;
+    --invoice-text: 210 20% 86%;
+    --invoice-muted: 220 12% 48%;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 33%), hsl(217 91% 60%));
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(214 32% 97%));
-    --gradient-invoice: linear-gradient(180deg, hsl(0 0% 100%), hsl(214 100% 97%));
+    /* Glass */
+    --glass-bg: 222 18% 11%;
+    --glass-border: 222 18% 18%;
 
     /* Shadows */
-    --shadow-invoice: 0 10px 25px -3px hsl(217 91% 33% / 0.1);
-    --shadow-card: 0 4px 6px -1px hsl(220 39% 11% / 0.1);
-    --shadow-button: 0 2px 4px hsl(217 91% 33% / 0.2);
+    --shadow-invoice: 0 20px 60px -10px hsl(222 100% 10% / 0.6);
+    --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.4);
+    --shadow-button: 0 4px 15px hsl(222 100% 62% / 0.3);
+    --shadow-glow: 0 0 30px hsl(222 100% 62% / 0.12);
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 220 39% 11%;
-    --foreground: 214 32% 95%;
-
-    --card: 220 26% 14%;
-    --card-foreground: 214 32% 95%;
-
-    --popover: 220 26% 14%;
-    --popover-foreground: 214 32% 95%;
-
-    --primary: 217 91% 60%;
-    --primary-foreground: 220 39% 11%;
-    --primary-light: 217 91% 70%;
-    --primary-dark: 217 91% 50%;
-
-    --secondary: 220 26% 18%;
-    --secondary-foreground: 214 32% 95%;
-
-    --muted: 220 26% 18%;
-    --muted-foreground: 220 14% 71%;
-
-    --accent: 220 26% 18%;
-    --accent-foreground: 214 32% 95%;
-
-    --success: 142 71% 45%;
-    --success-foreground: 0 0% 100%;
-
-    --destructive: 0 62% 50%;
-    --destructive-foreground: 214 32% 95%;
-
-    --border: 220 26% 18%;
-    --input: 220 26% 18%;
-    --ring: 217 91% 60%;
-
-    --invoice-header: 214 32% 95%;
-    --invoice-accent: 217 91% 60%;
-    --invoice-light: 220 26% 14%;
-    --invoice-text: 214 32% 95%;
-    --invoice-muted: 220 14% 71%;
-
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 50%), hsl(217 91% 70%));
-    --gradient-card: linear-gradient(145deg, hsl(220 26% 14%), hsl(220 26% 18%));
-    --gradient-invoice: linear-gradient(180deg, hsl(220 26% 14%), hsl(220 26% 16%));
-
-    --shadow-invoice: 0 10px 25px -3px hsl(0 0% 0% / 0.25);
-    --shadow-card: 0 4px 6px -1px hsl(0 0% 0% / 0.2);
-    --shadow-button: 0 2px 4px hsl(217 91% 60% / 0.3);
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-background: 222 20% 7%;
+    --sidebar-foreground: 210 20% 92%;
+    --sidebar-primary: 222 100% 62%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 222 15% 15%;
+    --sidebar-accent-foreground: 210 20% 92%;
+    --sidebar-border: 222 15% 16%;
+    --sidebar-ring: 222 100% 62%;
   }
 }
 
 @layer base {
   * {
     @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
     @apply bg-background text-foreground;
+    background-image: 
+      radial-gradient(ellipse at 20% 0%, hsl(222 100% 62% / 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, hsl(222 100% 52% / 0.04) 0%, transparent 50%);
+    background-attachment: fixed;
   }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(222 20% 7%);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(222 15% 20%);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(222 100% 62% / 0.5);
+  }
+}
+
+@layer components {
+  /* Glass Card */
+  .glass-card {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .glass-card:hover {
+    border-color: hsl(222 15% 22%);
+    box-shadow: var(--shadow-card), var(--shadow-glow);
+  }
+
+  /* Field Base */
+  .field-base {
+    background: hsl(222 20% 7%);
+    border: 1px solid hsl(var(--border));
+    border-radius: calc(var(--radius) - 2px);
+    color: hsl(var(--foreground));
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+    width: 100%;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .field-base::placeholder {
+    color: hsl(var(--muted-foreground));
+  }
+
+  .field-base:focus {
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.12);
+  }
+
+  /* Label */
+  .field-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: hsl(var(--muted-foreground));
+    display: block;
+    margin-bottom: 0.375rem;
+  }
+
+  /* Section heading */
+  .section-title {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* Accent line */
+  .accent-line {
+    height: 1px;
+    background: linear-gradient(90deg, hsl(var(--primary) / 0.4), transparent);
+    margin: 0;
+  }
+
+  /* Mono text */
+  .mono {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 0.8125rem;
+  }
+
+  /* Status badges */
+  .badge-draft {
+    background: hsl(220 15% 20%);
+    color: hsl(220 12% 60%);
+    border: 1px solid hsl(220 15% 25%);
+  }
+  .badge-sent {
+    background: hsl(222 100% 62% / 0.12);
+    color: hsl(222 100% 72%);
+    border: 1px solid hsl(222 100% 62% / 0.25);
+  }
+  .badge-paid {
+    background: hsl(158 64% 46% / 0.12);
+    color: hsl(158 64% 56%);
+    border: 1px solid hsl(158 64% 46% / 0.25);
+  }
+  .badge-overdue {
+    background: hsl(0 72% 58% / 0.12);
+    color: hsl(0 72% 68%);
+    border: 1px solid hsl(0 72% 58% / 0.25);
+  }
+
+  /* Print-only white doc */
+  @media print {
+    body {
+      background: white !important;
+      background-image: none !important;
+    }
+    .print-doc {
+      background: white !important;
+      color: #111 !important;
+      box-shadow: none !important;
+      border: none !important;
+    }
+  }
+}
+
+/* Subtle pulse animation for active state */
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 hsl(222 100% 62% / 0.3); }
+  70% { box-shadow: 0 0 0 8px hsl(222 100% 62% / 0); }
+  100% { box-shadow: 0 0 0 0 hsl(222 100% 62% / 0); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.3s ease forwards;
+}
+
+.animate-slide-in {
+  animation: slide-in 0.25s ease forwards;
 }
