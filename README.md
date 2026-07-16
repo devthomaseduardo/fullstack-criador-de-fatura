@@ -5,6 +5,10 @@
 [![React](https://img.shields.io/badge/React-18.x-blue.svg)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-5.x-646CFF.svg)](https://vitejs.dev/)
 
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=devthomaseduardo&repo=fullstack-criador-de-fatura&color=orange" alt="Repository Views" />
+</p>
+
 Um sistema moderno, rápido e eficiente para geração e gestão de faturas, focado em alta performance e experiência do usuário profissional. Construído com arquitetura baseada em componentes escaláveis.
 
 ## 🚀 Visão Geral de Negócio
@@ -76,3 +80,11 @@ Interessado em escalar o projeto conosco? Leia nosso [Guia de Contribuição](do
 ## 📜 Licença
 
 Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
+
+---
+
+> **📊 Visualizações deste repositório**  
+> O badge acima mostra o número de visualizações únicas deste README (atualizado automaticamente via [komarev.com](https://komarev.com/ghpvc)).  
+> Obrigado pela visita! Se o projeto te inspirou, considere deixar uma estrela ⭐️.
+
+**Padrão aplicado em todos os repositórios de Thomas Eduardo.**
